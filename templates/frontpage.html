@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+    
+    <div class="container">
+        <form id="home-page" method="post">
+            <input type="button" value="Sell" onclick="setFormAction('sell')">
+            <input type="button" value="edit" onclick="setFormAction('edit')">
+            <input type="button" value = "delete" onclick="setFormAction('delete')">
+            <input type="button" value = "buy" onclick="setFormAction('buy')">
+            <input type="button" value = "view items you're selling" onclick="setFormAction('view')">
+        </form>
+    </div>
+    <script>
+        function setFormAction(action) {
+            var form = document.getElementById('home-page');
+            if (action === 'sell') {
+                form.action = "{{ url_for('s') }}";
+                form.method = "post";
+                form.submit();
+            } else if (action === 'edit') {
+                form.action = "{{ url_for('e') }}";
+                form.method = "post";
+                form.submit();
+            } else if (action === 'delete') {
+                form.action = "{{ url_for('d') }}";
+                form.method = "post";
+                form.submit();
+            } else if (action === 'buy') {
+                form.action = "{{ url_for('b') }}";
+                form.method = "post";
+                form.submit();
+            }  else if (action === 'view') {
+                form.action = "{{ url_for('v') }}";
+                form.method = "post";
+                form.submit();
+            } 
+        }
+    </script>
+
+</body>
+</html>
