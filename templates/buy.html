@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<style>
+    input {
+        width: 95%;
+    }    
+    body {
+        background-color: hotpink;
+    }
+
+</style>
+<body>
+
+    <div class="container">
+        <form id="edit-page" method="post">
+            <input type="text" name="min price" placeholder="min price" autocomplete="off">
+            <input type="submit" value="show results" onclick="minPrice('edit')">
+    </div>
+
+    <script>
+        function minPrice(action) {
+            var form = document.getElementById('edit-page');
+            if (action === 'edit') {
+                form.action = "{{ url_for('filter') }}";
+                form.method = "post";
+                form.submit();
+        }
+    }
+    </script>
+
+</body>
+</html>
